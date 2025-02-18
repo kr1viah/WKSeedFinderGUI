@@ -69,14 +69,10 @@ namespace WindowkillSeedFinderGUI
             if (CheckBoxCpuMode.Checked) {
                 ThreadCount.Enabled = true;
                 LabelThreads.Enabled = true;
-                CheckBoxBosses.Enabled = true;
-                TextBoxBosses.Enabled = true;
             }
             else {
                 ThreadCount.Enabled = false;
                 LabelThreads.Enabled = false;
-                CheckBoxBosses.Enabled = false;
-                TextBoxBosses.Enabled = false;
             }
         }
 
@@ -87,7 +83,7 @@ namespace WindowkillSeedFinderGUI
         }
 
         private void ButtonBossesHelp_Click(object sender, EventArgs e) {
-            MessageBox.Show("Type the bosses you want here, choose out of:\r\n\"Spiker\", \"Wyrm\", \"Slimest\", \"Smiley\", \"Orb_array\", \"Miasma\"\r\nFor example:\r\n\r\nSpiker,Smiley,Slimest\r\nWyrm,Orb_array\r\n\r\nThe first boss is going to be OR a spiker, OR a smiley, OR a slimest\r\nThe second boss is going to be OR a wyrm, OR an orb array", "Bosses help", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("I was originally planning adding support for filtering for bosses too, but eventually decided it's not worth the hassle. \n\r\n\r If you want to filter for bosses too, consider compiling this project yourself.", "Bosses info", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void ButtonStart_Click(object sender, EventArgs e) {
@@ -97,9 +93,6 @@ namespace WindowkillSeedFinderGUI
             string arguments = "";
             if (CheckBoxCpuMode.Checked) {
                 arguments += " -cpu=" + ThreadCount.Value;
-                if (CheckBoxBosses.Checked) {
-                    arguments += " -bosses=" + TextBoxBosses.Text.Replace("\r\n", ";").Replace("\n", ";");
-                }
             }
             if (miscwindow != null && miscwindow.CheckBoxTime.Checked) {
                 arguments += " -timemin=" + miscwindow.TimeMin.Value + " -timemax=" + miscwindow.TimeMax.Value;
