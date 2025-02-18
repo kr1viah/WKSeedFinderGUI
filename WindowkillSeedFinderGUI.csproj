@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="main.dll" />
+    <None Remove="main.exe" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="main.dll" />
+    <EmbeddedResource Include="main.exe" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ilmerge" Version="3.0.41" />
+    <PackageReference Include="ManagedCuda" Version="10.0.0" />
+  </ItemGroup>
+
+</Project>
