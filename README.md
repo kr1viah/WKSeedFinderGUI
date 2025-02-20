@@ -27,7 +27,7 @@ Features that might be added later if I feel like it
 - Rewrite the seed finder in OpenCL for better compatibility with different GPUs
 
 ## Building
-After cloning the repository, run `dotnet build` (or `dotnet publish -c Release -r win-x64 -p:PublishSingleFile=true` for a single .exe file) in the root directory to build the project. The executable will be in `WindowkillSeedFinderGUI/bin/Debug/net8.0-windows/WindowkillSeedFinderGUI.exe` (or `net8.0-windows/win-x64/publish/WindowkillSeedFinderGUI.exe`).
+After cloning the repository, run `dotnet build` (or `dotnet publish -c Release -r win-x64 --self-contained false -p:PublishSingleFile=true` for a single .exe file) in the root directory to build the project. The executable will be in `WindowkillSeedFinderGUI/bin/Debug/net8.0-windows/WindowkillSeedFinderGUI.exe` (or `net8.0-windows/win-x64/publish/WindowkillSeedFinderGUI.exe`).
 
 As for the seed finder itself, install GCC to path, Go, the Cuda toolkit, and run `nvcc -shared -o main.dll main.cu` followed by `go build` in the `WindowkillSeedFinder` directory. The executable and .dll file will be in the same directory.
 
