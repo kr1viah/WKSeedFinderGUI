@@ -33,7 +33,6 @@
             ToolTipCpuMode = new ToolTip(components);
             ThreadCount = new NumericUpDown();
             ToolTipBosses = new ToolTip(components);
-            ButtonBossesHelp = new Button();
             LabelThreads = new Label();
             ((System.ComponentModel.ISupportInitialize)ThreadCount).BeginInit();
             SuspendLayout();
@@ -70,16 +69,6 @@
             ThreadCount.TabIndex = 3;
             ThreadCount.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
-            // ButtonBossesHelp
-            // 
-            ButtonBossesHelp.Location = new Point(259, 12);
-            ButtonBossesHelp.Name = "ButtonBossesHelp";
-            ButtonBossesHelp.Size = new Size(84, 23);
-            ButtonBossesHelp.TabIndex = 6;
-            ButtonBossesHelp.Text = "Bosses info";
-            ButtonBossesHelp.UseVisualStyleBackColor = true;
-            ButtonBossesHelp.Click += ButtonBossesHelp_Click;
-            // 
             // LabelThreads
             // 
             LabelThreads.AutoSize = true;
@@ -97,7 +86,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(355, 78);
             Controls.Add(LabelThreads);
-            Controls.Add(ButtonBossesHelp);
             Controls.Add(ThreadCount);
             Controls.Add(CheckBoxCpuMode);
             Controls.Add(ButtonStart);
@@ -119,7 +107,6 @@
         private ToolTip ToolTipCpuMode;
         private NumericUpDown ThreadCount;
         private ToolTip ToolTipBosses;
-        private Button ButtonBossesHelp;
         private Label LabelThreads;
     }
 }

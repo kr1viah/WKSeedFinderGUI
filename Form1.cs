@@ -75,17 +75,6 @@ namespace WindowkillSeedFinderGUI
                 LabelThreads.Enabled = false;
             }
         }
-
-        private void MainWindow_ResizeBegin(object sender, EventArgs e) {
-            if (this.WindowState == FormWindowState.Minimized) {
-                this.WindowState = FormWindowState.Normal;
-            }
-        }
-
-        private void ButtonBossesHelp_Click(object sender, EventArgs e) {
-            MessageBox.Show("I was originally planning adding support for filtering for bosses too, but eventually decided it's not worth the hassle. \n\r\n\r If you want to filter for bosses too, consider compiling this project yourself.", "Bosses info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
         private void ButtonStart_Click(object sender, EventArgs e) {
             var miscwindow = MiscWindow.Instance;
             var loadoutwindow = LoadoutWindow.Instance;
