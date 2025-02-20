@@ -57,7 +57,6 @@ namespace WindowkillSeedFinderGUI {
                 }
 
                 LabelStatus.Text = "Starting program...";
-                await Task.Delay(200);
 
                 ProcessStartInfo psi = new ProcessStartInfo
                 {
