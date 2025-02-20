@@ -23,17 +23,18 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            ListViewItem listViewItem7 = new ListViewItem("1|1 Spiker");
-            ListViewItem listViewItem8 = new ListViewItem("2|2 Wyrm");
-            ListViewItem listViewItem9 = new ListViewItem("3|2 Slimest");
-            ListViewItem listViewItem10 = new ListViewItem("4|3 Smiley");
-            ListViewItem listViewItem11 = new ListViewItem("5|3 Orb array");
-            ListViewItem listViewItem12 = new ListViewItem(new string[] { "6|4 Miasma", "`1231234" }, -1);
+            ListViewItem listViewItem1 = new ListViewItem("1|1 Spiker");
+            ListViewItem listViewItem2 = new ListViewItem("2|2 Wyrm");
+            ListViewItem listViewItem3 = new ListViewItem("3|2 Slimest");
+            ListViewItem listViewItem4 = new ListViewItem("4|3 Smiley");
+            ListViewItem listViewItem5 = new ListViewItem("5|3 Orb array");
+            ListViewItem listViewItem6 = new ListViewItem(new string[] { "6|4 Miasma", "`1231234" }, -1);
             ListViewBosses = new ListView();
             columnHeader1 = new ColumnHeader();
             LabelFindings = new Label();
             PanelStats = new Panel();
             LabelStats = new Label();
+            TextBoxSeed = new TextBox();
             PanelStats.SuspendLayout();
             SuspendLayout();
             // 
@@ -42,7 +43,7 @@
             ListViewBosses.Columns.AddRange(new ColumnHeader[] { columnHeader1 });
             ListViewBosses.HeaderStyle = ColumnHeaderStyle.None;
             ListViewBosses.HideSelection = true;
-            ListViewBosses.Items.AddRange(new ListViewItem[] { listViewItem7, listViewItem8, listViewItem9, listViewItem10, listViewItem11, listViewItem12 });
+            ListViewBosses.Items.AddRange(new ListViewItem[] { listViewItem1, listViewItem2, listViewItem3, listViewItem4, listViewItem5, listViewItem6 });
             ListViewBosses.LabelWrap = false;
             ListViewBosses.Location = new Point(610, 12);
             ListViewBosses.MultiSelect = false;
@@ -60,7 +61,7 @@
             // LabelFindings
             // 
             LabelFindings.AutoSize = true;
-            LabelFindings.Location = new Point(12, 12);
+            LabelFindings.Location = new Point(12, 38);
             LabelFindings.Name = "LabelFindings";
             LabelFindings.Size = new Size(37, 15);
             LabelFindings.TabIndex = 1;
@@ -84,11 +85,20 @@
             LabelStats.TabIndex = 0;
             LabelStats.Text = "Stats";
             // 
+            // TextBoxSeed
+            // 
+            TextBoxSeed.Location = new Point(12, 12);
+            TextBoxSeed.Name = "TextBoxSeed";
+            TextBoxSeed.ReadOnly = true;
+            TextBoxSeed.Size = new Size(147, 23);
+            TextBoxSeed.TabIndex = 3;
+            // 
             // SeedFound
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(TextBoxSeed);
             Controls.Add(PanelStats);
             Controls.Add(LabelFindings);
             Controls.Add(ListViewBosses);
@@ -113,5 +123,6 @@
         private Panel PanelStats;
         private Label LabelStats;
         private ColumnHeader columnHeader1;
+        private TextBox TextBoxSeed;
     }
 }

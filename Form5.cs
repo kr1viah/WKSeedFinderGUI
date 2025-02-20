@@ -46,12 +46,15 @@ namespace WindowkillSeedFinderGUI {
 
         public void Populate(List<string> outputLines) {
             (List<string> _, List<string> list1) = SplitListAtSeparator(outputLines, "Average time per seed:");
-            (List<string> stats, list1) = SplitListAtSeparator(list1, "Seed:");
+            (List <string> seeds, list1) = SplitListAtSeparator(list1, "Seed:");
+            (List<string> stats, list1) = SplitListAtSeparator(list1, "Character:");
             (List<string> stuffs, list1) = SplitListAtSeparator(list1, "Boss order:");
 
             string statsstring = string.Join(Environment.NewLine, stats);
+            string seedsstring = string.Join(Environment.NewLine, seeds);
             string findingsstring = string.Join(Environment.NewLine, stuffs);
-            LabelStats.Text = statsstring;
+            TextBoxSeed.Text = statsstring;
+            LabelStats.Text = seedsstring;
             LabelFindings.Text = findingsstring;
 
             (List<string> _, List<string> bosses) = SplitListAtSeparator(list1, "[");
