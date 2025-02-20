@@ -13,7 +13,7 @@ On my GTX 1660, it can check every possible seed (roughly 4 billion) in 4 minute
 	- Ability and level of ability
 
 ## Installation
-1. Download the latest release from the [releases page](https://github.com/kr1viah/WKSeedFinderGUI/releases) and extract it
+1. Download the latest release from the [releases page](https://github.com/kr1viah/WKSeedFinderGUI/releases)
 2. Install dotnet 8.0 or higher from [here](https://dotnet.microsoft.com/download/dotnet/8.0)
 3. Run WKSeedFinderGUI.exe
 
