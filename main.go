@@ -74,8 +74,8 @@ var shouldStop = false
 var character int
 var ability int
 var colourState *int
-var abilityLevelMin *int
-var abilityLevelMax *int
+var abilityLevelMin *float64
+var abilityLevelMax *float64
 var speedMin *int
 var speedMax *int
 var fireRateMin *int
@@ -95,7 +95,7 @@ var infectionMax *int
 var timeMin *float64
 var timeMax *float64
 
-func bruteForce(id int) {
+func bruteForce(id, threads int) {
 	for i := id + 1; i < 4294967296; i = i + threads {
 		if shouldStop {
 			return
@@ -104,8 +104,8 @@ func bruteForce(id int) {
 		if (character == -1 || loadout.char == Char(character)) &&
 			(ability == -1 || loadout.abilityChar == Char(ability)) &&
 			(*colourState == -1 || loadout.colorState == int32(*colourState)) &&
-			loadout.abilityLevel >= float64(*abilityLevelMin) &&
-			loadout.abilityLevel <= float64(*abilityLevelMax) &&
+			loadout.abilityLevel >= *abilityLevelMin &&
+			loadout.abilityLevel <= *abilityLevelMax &&
 			loadout.itemCounts[0] >= *speedMin &&
 			loadout.itemCounts[0] <= *speedMax &&
 			loadout.itemCounts[1] >= *fireRateMin &&
@@ -134,7 +134,6 @@ func bruteForce(id int) {
 
 var winningHash uint
 var didFindSeed bool = false
-var threads int
 
 func main() {
 	fmt.Println("Running")
@@ -159,8 +158,8 @@ func main() {
 	splashDamageMax = flag.Int("splashdamagemax", 26, "")
 	wallPunchMin = flag.Int("wallpunchmin", 0, "")
 	wallPunchMax = flag.Int("wallpunchmax", 26, "")
-	abilityLevelMin = flag.Int("abilitylevelmin", 0, "")
-	abilityLevelMax = flag.Int("abilitylevelmax", 7, "")
+	abilityLevelMin = flag.Float64("abilitylevelmin", 0, "")
+	abilityLevelMax = flag.Float64("abilitylevelmax", 7, "")
 	var abilityString = flag.String("ability", "", "")
 	var characterString = flag.String("character", "", "")
 	fmt.Println("Getting parameters...")
@@ -234,7 +233,7 @@ func main() {
 		for t := 0; t < *threadCount; t++ {
 			go func() {
 				defer wg.Done()
-				bruteForce(t)
+				bruteForce(t, *threadCount)
 			}()
 		}
 		wg.Wait()
@@ -249,6 +248,7 @@ func main() {
 		fmt.Println("Boss order:", Get_bosses(uint64(winningHash)))
 	} else {
 		fmt.Println("Seed doesn't exist!")
+		fmt.Println("Average time per seed:", time.Since(start)/time.Duration(4294967296)) // seeds checked, roughly
 		fmt.Println("Runtime:", time.Since(start))
 	}
 }
